@@ -28,6 +28,8 @@ def xTurn():
                     valid = True
                 else:
                     print('The cell is already choosen, take anoter!')
+            else:
+                print('Please write a number from 1 to 3')
         else:
             print('Please write a number from 1 to 3')
 
@@ -46,59 +48,78 @@ def oTurn():
                     valid = True
                 else:
                     print('The cell is already choosen, take anoter!')
+            else:
+                print('Please write a number from 1 to 3')
         else:
             print('Please write a number from 1 to 3')
 
 #function checks who win
 def checkWin():
+    global whowin
     for i in board:
         if board[0][0] == board[0][1] == board[0][2] in 'X':
             win = True
+            whowin = 'X'
             return win
         elif board[1][0] == board[1][1] == board[1][2] in 'X':
             win = True
+            whowin = 'X'
             return win
         elif board[2][0] == board[2][1] == board[2][2] in 'X':
             win = True
+            whowin = 'X'
             return win
         elif board[0][0] == board[1][0] == board[2][0] in 'X':
             win = True
+            whowin = 'X'
             return win
         elif board[0][1] == board[1][1] == board[2][1] in 'X':
             win = True
+            whowin = 'X'
             return win
         elif board[0][2] == board[1][2] == board[2][2] in 'X':
             win = True
+            whowin = 'X'
             return win
         elif board[0][0] == board[1][0] == board[2][0] in 'O':
             win = True
+            whowin = 'O'
             return win
         elif board[0][1] == board[1][1] == board[2][1] in 'O':
             win = True
+            whowin = 'O'
             return win
         elif board[0][2] == board[1][2] == board[2][2] in 'O':
             win = True
+            whowin = 'O'
             return win
         elif board[0][0] == board[0][1] == board[0][2] in 'O':
             win = True
+            whowin = 'O'
             return win
         elif board[1][0] == board[1][1] == board[1][2] in 'O':
             win = True
+            whowin = 'O'
             return win
         elif board[2][0] == board[2][1] == board[2][2] in 'O':
             win = True
+            whowin = 'O'
             return win
         elif board[0][0] == board[1][1] == board[2][2] in 'X':
             win = True
+            whowin = 'X'
             return win
         elif board[0][0] == board[1][1] == board[2][2] in 'O':
             win = True
+            whowin = 'O'
             return win
         elif board[0][2] == board[1][1] == board[2][0] in 'X':
             win = True
+            whowin = 'X'
             return win
         elif board[0][2] == board[1][1] == board[2][0] in 'O':
             win = True
+            whowin = 'O'
             return win
         else:
             win = False
@@ -116,14 +137,13 @@ def game():
         counter += 1
         checkWin()
         if counter == 9:                #if no one wins till 9 move, it's a draw
-            print(drawBoard())
+            drawBoard()
             print('DRAW')
             break
         elif checkWin() == False:
             continue
         else:
-            print(drawBoard())
-            print('We have a winner!')
-            break
+            drawBoard()
+            print(f'We have a winner! {whowin} won!')
 
 game()

@@ -1,5 +1,8 @@
 import random
 
+print('THE TREASURE')
+print('\nYou have to choose where you want to go\nbetween numbers from 0 to 9 and need to find a treasure.\n')
+
 boardpath = r'C:\Users\immun\Desktop\test\Treasure.txt'
 
 def writeUpNumbers():
@@ -28,18 +31,22 @@ with open(boardpath,'r') as file:
         if playerChoose == '1':
             moveForward = int(input('How many characters?\n'))
             choosenCell = file.seek(choosenCell + moveForward)
-            print(file.tell())
-            print(choosenCell)
+            print(f'\nYou move forward and hit {file.readline(1)}')
+            if file.readline(1) in '0123456789':
+                continue
+            else:
+                print('\nCongratulations, you found a treasure!')
+                break
+
         elif playerChoose == '2':
             moveBackward = int(input('How many characters?\n'))
             choosenCell = file.seek(choosenCell - moveBackward)
-            print(file.tell())
-            print(choosenCell)
+            print(f'\nYou move backward and hit {file.readline(1)}')
+            if file.readline(1) in '0123456789':
+                continue
+            else:
+                print('\nCongratulations, you found a treasure!')
+                break
+
         else:
             print('Please choose 1 or 2!')
-
-
-
-
-
-

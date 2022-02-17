@@ -1,4 +1,4 @@
-#############
+####################
 
 import json
 import requests
@@ -24,4 +24,4 @@ if response.status_code // 100 == 2:
 else:
     print('This post id does not exist')
     
-#############
+####################
